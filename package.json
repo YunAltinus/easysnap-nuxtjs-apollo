@@ -1,0 +1,28 @@
+{
+  "name": "easysnap",
+  "version": "1.0.0",
+  "description": "My stylish Nuxt.js project",
+  "author": "Yunus",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@nuxtjs/apollo": "^4.0.1-rc.1",
+    "@nuxtjs/moment": "^1.6.1",
+    "bcrypt": "^5.0.0",
+    "nuxt": "^2.0.0",
+    "vue-timeago": "^5.1.2"
+  },
+  "devDependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "gh-pages": "^3.1.0",
+    "prettier": "^1.19.1"
+  }
+}
