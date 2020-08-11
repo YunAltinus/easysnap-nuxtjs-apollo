@@ -1,6 +1,6 @@
 # easysnap
 
-Easynsap using Nuxt Js with @nuxtjs/apollo module
+Easysnap using Nuxt Js with @nuxtjs/apollo module
 
 ## Build Setup
 
