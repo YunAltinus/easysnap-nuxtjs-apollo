@@ -53,7 +53,7 @@ app.use(async (req, res, next) => {
       const activeUser = await jwt.verify(checkToken, process.env.JWT_KEY);
       req.activeUser = activeUser;
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   }
   next();

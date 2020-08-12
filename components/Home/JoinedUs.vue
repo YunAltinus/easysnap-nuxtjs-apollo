@@ -19,6 +19,9 @@ export default {
         query: USER_CREATED,
         result({ data }) {
           this.username = data.user.username;
+          setTimeout(() => {
+            this.username = null;
+          }, 5000);
         }
       }
     }

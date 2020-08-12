@@ -1,6 +1,6 @@
-export default async function(context) {
-  const hasToken = await !!context.app.$apolloHelpers.getToken();
+export default async function({ app, redirect }) {
+  const hasToken = await !!app.$apolloHelpers.getToken();
   if (!hasToken) {
-    return context.redirect('/');
+    return redirect('/');
   }
 }

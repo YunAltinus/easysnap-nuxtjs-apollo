@@ -5,8 +5,8 @@
     </div>
     <div class="header_menu">
       <nuxt-link to="/" tag="a" exact>snaps</nuxt-link>
-      <nuxt-link to="/profile" tag="a" v-if="activeUser">@{{activeUser.username}}</nuxt-link>
-      <Logout v-if="activeUser" />
+      <nuxt-link to="/profile" tag="a" v-if="$store.state.activeUser">@{{$store.state.activeUser.username}}</nuxt-link>
+      <Logout v-if="$store.state.activeUser" />
       <div v-else>
         <nuxt-link to="/login" tag="a">login</nuxt-link>
         <nuxt-link to="/join" tag="a">join</nuxt-link>
@@ -19,7 +19,6 @@
 import Logout from './Logout';
 
 export default {
-  props: ['activeUser'],
   components: {
     Logout
   },

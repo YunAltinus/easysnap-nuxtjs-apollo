@@ -1,13 +1,14 @@
 <template>
   <div>
-    <Header :activeUser="activeUser"/>
+    <Header/>
     <nuxt/>
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header';
-import { GET_ACTIVE_USER } from '../queries/index';
+import { GET_ACTIVE_USER } from '@/queries/index';
+
 export default {
   components: {
     Header

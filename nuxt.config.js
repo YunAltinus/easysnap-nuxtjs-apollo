@@ -78,5 +78,5 @@ export default {
   /*
    ** Server Middleware
    */
-  // serverMiddleware: ['~/api/index']
+  // serverMiddleware:[]
 };

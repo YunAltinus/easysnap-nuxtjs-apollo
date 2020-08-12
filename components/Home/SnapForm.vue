@@ -61,7 +61,6 @@ export default {
         })
         .then(({ data }) => {
           this.text = null;
-          console.log(data);
         })
         .catch(() => console.error('Ekleme islemi gerçekleşemedi'));
     }

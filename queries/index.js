@@ -66,7 +66,7 @@ export const ADD_SNAP = gql`
   }
 `;
 
-// Subscriptions
+// SUBSCRIPTIONS
 
 export const USER_CREATED = gql`
   subscription {

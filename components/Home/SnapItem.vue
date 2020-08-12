@@ -18,12 +18,6 @@
 </template>
 <script>
 export default {
-  props: ['snaps'],
-  // data() {
-  //   return {
-  //     snaps : this.snaps
-  //   }
-  // },
-  
+  props: ['snaps']
 };
 </script>
