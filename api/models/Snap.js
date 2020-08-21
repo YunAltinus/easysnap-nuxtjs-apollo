@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const snapSchema = new Schema({
@@ -15,4 +15,4 @@ const snapSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model("snap", snapSchema);
+module.exports = mongoose.model('snap', snapSchema);

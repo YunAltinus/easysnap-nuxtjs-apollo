@@ -16,7 +16,6 @@ const resolvers = require('./graphql/resolvers/index');
 // User DB
 const User = require('./models/User.js');
 const Snap = require('./models/Snap.js');
-const { JsonWebTokenError } = require('jsonwebtoken');
 
 //DB
 mongoose
