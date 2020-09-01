@@ -13,16 +13,16 @@
 </template>
 
 <script>
-
-import SnapForm from '@/components/Home/SnapForm';
-import SnapList from '@/components/Home/SnapList';
-import JoinedUs from '@/components/Home/JoinedUs';
+import SnapForm from '~/components/Home/SnapForm';
+import SnapList from '~/components/Home/SnapList';
+import JoinedUs from '~/components/Home/JoinedUs';
 
 export default {
   components: {
     SnapForm,
     SnapList,
-    JoinedUs,
-  }
+    JoinedUs
+  },
+ 
 };
 </script>

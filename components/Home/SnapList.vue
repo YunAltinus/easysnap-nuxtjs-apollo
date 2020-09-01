@@ -13,11 +13,9 @@ import SnapItem from './SnapItem';
 import { GET_SNAPS, SNAP_CREATED } from '@/queries';
 
 export default {
-  props: ['user'],
   data() {
     return {
-      snapsLength: 0,
-      activeUser: this.user
+      snapsLength: 0
     };
   },
   components: {
@@ -30,13 +28,6 @@ export default {
         document: SNAP_CREATED,
         // Variables passed to the subscription. Since we're using a function,
         // they are reactive
-        variables() {
-          if (this.activeUser) {
-            return { user_id: this.activeUser.id };
-          } else {
-            return { user_id: null };
-          }
-        },
         update(data) {
           console.log('update', data);
           // The returned value will update

@@ -3,7 +3,7 @@
     <form @submit.prevent="addSnap">
       <input
         v-model="text"
-        :disabled="!this.$apolloHelpers.getToken() || this.$apollo.loading"
+        :disabled="!this.$apolloHelpers.getToken()"
         class="add-snap__input"
         type="text"
         placeholder="add snap"
@@ -13,14 +13,21 @@
 </template>
 
 <script>
-import { ADD_SNAP, GET_SNAPS } from '@/queries';
+import { ADD_SNAP, GET_SNAPS, GET_ACTIVE_USER } from '@/queries';
 
 export default {
   data() {
     return {
-      text: '',
-      user_id: ''
-    };
+      text: ''
+    }
+  },
+  apollo: {
+    activeUser: {
+      query: GET_ACTIVE_USER,
+      result({ data }) {
+        this.$store.dispatch('setActiveUser', data.activeUser);
+      }
+    }
   },
   methods: {
     addSnap(event) {
@@ -28,7 +35,7 @@ export default {
         .mutate({
           mutation: ADD_SNAP,
           variables: {
-            user_id: this.user_id,
+            user_id: this.activeUser.id,
             text: this.text
           },
           update: (store, { data: { createSnap } }) => {
@@ -53,8 +60,8 @@ export default {
               createdAt: new Date(),
               user: {
                 __typename: 'User',
-                id: this.user_id,
-                username: this.$store.state.activeUser.username
+                id: this.activeUser.id,
+                username: this.activeUser.username
               }
             }
           }
@@ -63,11 +70,6 @@ export default {
           this.text = null;
         })
         .catch(() => console.error('Ekleme islemi gerçekleşemedi'));
-    }
-  },
-  mounted() {
-    if (this.$store.state.activeUser) {
-      this.user_id = this.$store.state.activeUser.id;
     }
   }
 };
