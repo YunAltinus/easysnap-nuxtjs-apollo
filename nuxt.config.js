@@ -73,10 +73,9 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
   }
-  /*
-   ** Server Middleware
-   */
-  // serverMiddleware:[]
 };
+/*
+ ** Server Middleware
+ */
+// serverMiddleware:[]
