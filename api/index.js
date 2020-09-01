@@ -36,7 +36,8 @@ const server = new ApolloServer({
     User,
     Snap,
     pubsub,
-    activeUser: req ? req.activeUser : null
+    activeUser: req ? req.activeUser : null,
+    introspection: true
   })
 });
 const app = express();
@@ -63,7 +64,7 @@ server.applyMiddleware({ app });
 const httpServer = http.createServer(app);
 server.installSubscriptionHandlers(httpServer);
 
-const port = 4000;
+const port = process.env.PORT || 4000;
 httpServer.listen(port, () =>
   console.log(`Example app listening at http://localhost:${port}`)
 );
