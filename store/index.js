@@ -17,11 +17,10 @@ const createStore = () => {
     },
     actions: {
       nuxtServerInit({ commit }, { req }) {
-        const token = req.headers.cookie;
-        console.log(token);
+        const token = req.headers;
         if (token && token !== null) {
           try {
-            const checkToken = token.split('=')[1];
+            const checkToken = token.cookie.split('=')[1];
             commit('setToken', checkToken);
           } catch (error) {
             console.log(error);
