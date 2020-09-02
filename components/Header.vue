@@ -24,7 +24,7 @@ import { GET_ACTIVE_USER } from '~/queries';
 export default {
   computed: {
     getToken() {
-      return this.$apolloHelpers.getToken() != null;
+      return this.$apolloHelpers.getToken()
     }
   },
   apollo: {
