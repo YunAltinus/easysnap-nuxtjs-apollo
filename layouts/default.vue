@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <Header :activeUser="activeUser"/>
     <nuxt />
   </div>
 </template>
