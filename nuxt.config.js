@@ -57,11 +57,11 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: process.env.NUXT_APP_URI,
+        httpEndpoint: 'https://easysnap-nuxt.herokuapp.com/graphql',
         httpLinkOptions: {
           credentials: 'same-origin'
         },
-        wsEndpoint: process.env.NUXT_APP_WS_LINK
+        wsEndpoint: 'ws://easysnap-nuxt.herokuapp.com/graphql'
       }
     }
   },
