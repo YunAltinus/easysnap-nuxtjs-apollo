@@ -40,11 +40,12 @@ export default {
           if (this.$store.state.activeUser.id !== newSnap.user.id) {
             if (previousResult.snaps.find(snap => snap.id === newSnap.id)) {
               return previousResult;
+            } else {
+              return {
+                ...previousResult,
+                snaps: [newSnap, ...previousResult.snaps]
+              };
             }
-
-            return {
-              snaps: [newSnap, ...previousResult.snaps]
-            };
           }
         }
       },
