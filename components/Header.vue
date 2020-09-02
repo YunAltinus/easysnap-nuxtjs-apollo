@@ -23,8 +23,8 @@ import { GET_ACTIVE_USER } from '~/queries';
 
 export default {
   computed: {
-    getToken() {
-      return this.$apolloHelpers.getToken()
+    async getToken() {
+      return await this.$apolloHelpers.getToken()
     }
   },
   apollo: {
