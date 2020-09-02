@@ -14,6 +14,7 @@ const createStore = () => {
     actions: {
       singIn({ commit, dispatch }, token) {
         this.$apolloHelpers.onLogin(token);
+        localStorage.setItem('apollo-token', token);
         this.$router.push('/');
       },
       async setActiveUser({ commit }, activeUser) {
@@ -21,6 +22,7 @@ const createStore = () => {
       },
       onLogout({ commit }) {
         this.$apolloHelpers.onLogout();
+        localStorage.removeItem('apollo-token');
         this.$router.push('/');
       }
     }
