@@ -17,6 +17,7 @@
 
 <script>
 import Logout from './Logout';
+import { GET_ACTIVE_USER } from '~/queries';
 
 export default {
   apollo: {
