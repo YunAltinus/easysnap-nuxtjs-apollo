@@ -17,14 +17,14 @@ const createStore = () => {
     },
     actions: {
       nuxtServerInit({ commit }, { req }) {
-        if (req.headers && req.headers !== null) {
-          try {
-            const checkToken = req.headers.cookie.split('=')[1];
-            commit('setToken', checkToken);
-          } catch (error) {
-            console.log(error);
-          }
-        }
+        // if (req.headers && req.headers !== null) {
+        //   try {
+        //     const checkToken = req.headers.cookie.split('=')[1];
+        //     commit('setToken', checkToken);
+        //   } catch (error) {
+        //     console.log(error);
+        //   }
+        // }
       },
       singIn({ commit, dispatch }, token) {
         this.$apolloHelpers.onLogin(token);
