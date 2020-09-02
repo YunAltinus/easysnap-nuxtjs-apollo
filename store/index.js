@@ -25,11 +25,6 @@ const createStore = () => {
         localStorage.removeItem('apollo-token');
         this.$router.push('/');
       }
-    },
-    getters: {
-      getActiveUser(state) {
-        return state.activeUser;
-      }
     }
   });
 };
