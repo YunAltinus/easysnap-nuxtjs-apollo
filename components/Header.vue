@@ -27,8 +27,8 @@ export default {
       user: null
     };
   },
-  created() {
-    this.user = this.activeUser;
+  async created() {
+    this.user = await this.activeUser;
   },
   apollo: {
     activeUser: {
