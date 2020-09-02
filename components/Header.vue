@@ -5,12 +5,14 @@
     </div>
     <div class="header_menu">
       <nuxt-link to="/" tag="a" exact>snaps</nuxt-link>
-      <nuxt-link to="/profile" tag="a" v-if="activeUser">@{{activeUser.username}}</nuxt-link>
-      <Logout v-if="!activeUser" />
-      <div v-else>
+      <span v-if="activeUser">
+        <nuxt-link to="/profile" tag="a">@{{activeUser.username}}</nuxt-link>
+        <Logout />
+      </span>
+      <span v-else>
         <nuxt-link to="/login" tag="a">login</nuxt-link>
         <nuxt-link to="/join" tag="a">join</nuxt-link>
-      </div>
+      </span>
     </div>
   </div>
 </template>
