@@ -3,11 +3,6 @@ import Logout from './Logout';
 import { GET_ACTIVE_USER } from '~/queries';
 
 export default {
-  apollo: {
-    activeUser: {
-      query: GET_ACTIVE_USER
-    }
-  },
   components: {
     Logout
   }
@@ -21,8 +16,8 @@ export default {
     </div>
     <div class="header_menu">
       <nuxt-link to="/" tag="a" exact>snaps</nuxt-link>
-      <span v-if="activeUser">
-        <nuxt-link to="/profile" tag="a">@{{activeUser.username}}</nuxt-link>
+      <span v-if="$store.state.activeUser">
+        <nuxt-link to="/profile" tag="a">@{{$store.state.activeUser.username}}</nuxt-link>
         <Logout />
       </span>
       <span v-else>
