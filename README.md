@@ -1,6 +1,10 @@
-# easysnap
+# Easysnap
 
 Easysnap using Nuxt Js with @nuxtjs/apollo module
+
+# Demo
+
+https://easysnap-nuxt.netlify.app
 
 ## Build Setup
 
