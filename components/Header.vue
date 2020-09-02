@@ -5,7 +5,7 @@
     </div>
     <div class="header_menu">
       <nuxt-link to="/" tag="a" exact>snaps</nuxt-link>
-      <span v-if="activeUser">
+      <span v-if="initLocal || activeUser">
         <nuxt-link to="/profile" tag="a">@{{activeUser.username}}</nuxt-link>
         <Logout />
       </span>
@@ -22,8 +22,10 @@ import Logout from './Logout';
 import { GET_ACTIVE_USER } from '~/queries';
 
 export default {
-  asyncData(){
-    console.log(activeUser);
+  methods: {
+    initLocal() {
+      return localStorage.getItem('apollo-token') != null
+    }
   },
   apollo: {
     activeUser: {
