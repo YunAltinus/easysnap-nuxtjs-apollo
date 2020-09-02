@@ -22,11 +22,18 @@ import Logout from './Logout';
 import { GET_ACTIVE_USER } from '~/queries';
 
 export default {
+  async asyncData(){
+    return {
+      activeUser: null
+    }
+  },
   apollo: {
     activeUser: {
       query: GET_ACTIVE_USER,
-      result({ data }) {
+      async result({ data }) {
+        this.activeUser = await data.activeUser
         this.$store.dispatch('setActiveUser', data.activeUser);
+
       }
     }
   },
