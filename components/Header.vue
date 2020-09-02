@@ -5,7 +5,7 @@
     </div>
     <div class="header_menu">
       <nuxt-link to="/" tag="a" exact>snaps</nuxt-link>
-      <span v-if="user != null">
+      <span v-if="user">
         <nuxt-link to="/profile" tag="a">@{{user.username}}</nuxt-link>
         <Logout />
       </span>
