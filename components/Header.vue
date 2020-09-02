@@ -5,8 +5,8 @@
     </div>
     <div class="header_menu">
       <nuxt-link to="/" tag="a" exact>snaps</nuxt-link>
-      <span v-if="this.activeUser">
-        <nuxt-link to="/profile" tag="a">@{{this.activeUser.username}}</nuxt-link>
+      <span v-if="$store.state.activeUser">
+        <nuxt-link to="/profile" tag="a">@{{$store.state.activeUser.username}}</nuxt-link>
         <Logout />
       </span>
       <span v-else>
