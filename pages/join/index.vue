@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Header/>
     <form class="user-form" @submit.prevent="createUser">
       <label>
         <input v-model="username" type="text" placeholder="username" />

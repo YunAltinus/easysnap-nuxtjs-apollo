@@ -1,5 +1,6 @@
 <template >
   <div>
+    <Header/>
     <form class="user-form" @submit.prevent="singIn">
       <label>
         <input v-model="username" type="text" placeholder="username" />

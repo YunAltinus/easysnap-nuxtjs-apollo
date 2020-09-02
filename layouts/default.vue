@@ -1,18 +1,13 @@
 <template>
   <div>
-    <Header/>
     <nuxt />
   </div>
 </template>
 
 <script>
-import Header from '~/components/Header';
-import {GET_ACTIVE_USER} from "~/queries"
+import { GET_ACTIVE_USER } from '~/queries';
 
 export default {
-  components: {
-    Header
-  },
   apollo: {
     activeUser: {
       query: GET_ACTIVE_USER,

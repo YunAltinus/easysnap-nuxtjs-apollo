@@ -1,9 +1,12 @@
 <template>
   <div>
-    <div>profile</div>
-    <br />
-    <p>Kullanıcı adı : {{ this.$store.state.activeUser.username }}</p>
-    <p>Kullanıcı kayıt tarihi : {{ $moment(this.$store.state.activeUser.createdAt).format('DD/MM/YYYY') }}</p>
+    <Header />
+    <div>
+      <div>profile</div>
+      <br />
+      <p>Kullanıcı adı : {{ this.$store.state.activeUser.username }}</p>
+      <p>Kullanıcı kayıt tarihi : {{ $moment(this.$store.state.activeUser.createdAt).format('DD/MM/YYYY') }}</p>
+    </div>
   </div>
 </template>
 

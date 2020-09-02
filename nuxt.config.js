@@ -29,7 +29,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/timeago'],
+  plugins: ['~/plugins/timeago', '~/plugins/components'],
 
   /*
    ** Router Exam

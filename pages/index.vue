@@ -1,14 +1,17 @@
 <template>
-  <div class="container">
-    <div class="description">
-      <p class="sub_header__desc">
-        simple snap app with
-        <span>Nuxt</span>.
-      </p>
+  <div>
+    <Header />
+    <div class="container">
+      <div class="description">
+        <p class="sub_header__desc">
+          simple snap app with
+          <span>Nuxt</span>.
+        </p>
+      </div>
+      <SnapForm />
+      <JoinedUs />
+      <SnapList />
     </div>
-    <SnapForm />
-    <JoinedUs />
-    <SnapList />
   </div>
 </template>
 
@@ -22,7 +25,6 @@ export default {
     SnapForm,
     SnapList,
     JoinedUs
-  },
- 
+  }
 };
 </script>
