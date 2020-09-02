@@ -19,7 +19,14 @@
 import Logout from './Logout';
 
 export default {
-  props: ['activeUser'],
+  apollo: {
+    activeUser: {
+      query: GET_ACTIVE_USER,
+      result({ data }) {
+        this.$store.dispatch('setActiveUser', data.activeUser);
+      }
+    }
+  },
   components: {
     Logout
   }
