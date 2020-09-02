@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { ADD_SNAP, GET_SNAPS, GET_ACTIVE_USER } from '@/queries';
+import { ADD_SNAP, GET_SNAPS, GET_ACTIVE_USER } from '~/queries';
 
 export default {
   data() {

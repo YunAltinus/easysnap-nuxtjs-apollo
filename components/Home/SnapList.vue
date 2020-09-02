@@ -28,12 +28,6 @@ export default {
         document: SNAP_CREATED,
         // Variables passed to the subscription. Since we're using a function,
         // they are reactive
-        update(data) {
-          console.log('update', data);
-          // The returned value will update
-          // the vue property 'pingMessage'
-          return data.ping;
-        },
         // Mutate the previous result
         updateQuery(previousResult, { subscriptionData }) {
           // Here, return the new result from the previous with the new data

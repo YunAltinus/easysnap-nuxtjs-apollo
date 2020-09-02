@@ -11,7 +11,6 @@
         <button :disabled="inValid" type="submit">Login</button>
       </label>
       <div v-if="error">{{ error }}</div>
-      <div v-if="$apollo.loading">Yükleniyor...</div>
     </form>
   </div>
 </template>
