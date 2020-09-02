@@ -16,8 +16,8 @@ const createStore = () => {
         this.$apolloHelpers.onLogin(token);
         this.$router.push('/');
       },
-      setActiveUser({ commit }, activeUser) {
-        commit('setActiveUser', activeUser);
+      async setActiveUser({ commit }, activeUser) {
+        await commit('setActiveUser', activeUser);
       },
       onLogout({ commit }) {
         this.$apolloHelpers.onLogout();
