@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <nuxt :activeUser="activeUser"/>
-  </div>
+  <nuxt />
 </template>
 
 <script>
-import { GET_ACTIVE_USER } from '~/queries';
+import { GET_ACTIVE_USER } from '@/queries';
 
 export default {
   apollo: {

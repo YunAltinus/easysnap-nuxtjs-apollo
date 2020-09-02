@@ -5,7 +5,7 @@
     </div>
     <div class="header_menu">
       <nuxt-link to="/" tag="a" exact>snaps</nuxt-link>
-      <div v-if="watchToken || activeUser">
+      <div v-if="activeUser">
         <nuxt-link to="/profile" tag="a">Profil</nuxt-link>
         <Logout />
       </div>
@@ -19,7 +19,7 @@
   
 <script>
 import Logout from './Logout';
-import { GET_ACTIVE_USER } from '~/queries';
+import { GET_ACTIVE_USER } from '@/queries';
 
 export default {
   computed: {
@@ -29,7 +29,10 @@ export default {
   },
   apollo: {
     activeUser: {
-      query: GET_ACTIVE_USER
+      query: GET_ACTIVE_USER,
+      result({ data }) {
+        this.$store.dispatch('setActiveUser', data.activeUser);
+      }
     }
   },
   components: {
