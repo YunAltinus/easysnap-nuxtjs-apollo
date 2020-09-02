@@ -5,8 +5,8 @@
     </div>
     <div class="header_menu">
       <nuxt-link to="/" tag="a" exact>snaps</nuxt-link>
-      <div v-if="isAuth">
-        <nuxt-link to="/profile" tag="a">@{{activeUser.username}}</nuxt-link>
+      <div v-if="watchToken">
+        <nuxt-link to="/profile" tag="a">Profil</nuxt-link>
         <Logout />
       </div>
       <div v-else>
@@ -22,14 +22,9 @@ import Logout from './Logout';
 import { GET_ACTIVE_USER } from '~/queries';
 
 export default {
-  computed:{
-    isAuth(){
-      return this.$store.state.activeUser ? true : false
-    }
-  },
-  apollo: {
-    activeUser: {
-      query: GET_ACTIVE_USER
+  computed: {
+    watchToken() {
+      return this.$store.getters.getToken;
     }
   },
   components: {
