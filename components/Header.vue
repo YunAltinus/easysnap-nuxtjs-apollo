@@ -5,8 +5,8 @@
     </div>
     <div class="header_menu">
       <nuxt-link to="/" tag="a" exact>snaps</nuxt-link>
-      <div v-if="user">
-        <nuxt-link to="/profile" tag="a">@{{user.username}}</nuxt-link>
+      <div v-if="getToken">
+        <nuxt-link to="/profile" tag="a">@{{activeUser.username}}</nuxt-link>
         <Logout />
       </div>
       <div v-else>
@@ -22,13 +22,10 @@ import Logout from './Logout';
 import { GET_ACTIVE_USER } from '~/queries';
 
 export default {
-  data() {
-    return {
-      user: null
-    };
-  },
-  async created() {
-    this.user = await this.activeUser;
+  computed: {
+    getToken() {
+      return this.$apolloHelpers.getToken() != null;
+    }
   },
   apollo: {
     activeUser: {
