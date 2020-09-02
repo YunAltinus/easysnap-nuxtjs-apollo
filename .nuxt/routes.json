@@ -3,24 +3,28 @@
     "name": "join",
     "path": "/join",
     "component": "C:\\\\Users\\\\yunus\\\\Documents\\\\GitHub\\\\easysnap-NuxtJs\\\\pages\\\\join\\\\index.vue",
-    "chunkName": "pages/join/index"
+    "chunkName": "pages/join/index",
+    "_name": "_2f307a23"
   },
   {
     "name": "login",
     "path": "/login",
     "component": "C:\\\\Users\\\\yunus\\\\Documents\\\\GitHub\\\\easysnap-NuxtJs\\\\pages\\\\login\\\\index.vue",
-    "chunkName": "pages/login/index"
+    "chunkName": "pages/login/index",
+    "_name": "_0890119e"
   },
   {
     "name": "profile",
     "path": "/profile",
     "component": "C:\\\\Users\\\\yunus\\\\Documents\\\\GitHub\\\\easysnap-NuxtJs\\\\pages\\\\profile\\\\index.vue",
-    "chunkName": "pages/profile/index"
+    "chunkName": "pages/profile/index",
+    "_name": "_10fbd7c4"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\yunus\\\\Documents\\\\GitHub\\\\easysnap-NuxtJs\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_dd7e3166"
   }
 ]

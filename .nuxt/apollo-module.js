@@ -31,8 +31,7 @@ export default (ctx, inject) => {
   "httpEndpoint": "https://easysnap-nuxt.herokuapp.com/graphql",
   "httpLinkOptions": {
     "credentials": "same-origin"
-  },
-  "wsEndpoint": "ws://easysnap-nuxt.herokuapp.com/graphql"
+  }
 }
 
       if (process.server) {

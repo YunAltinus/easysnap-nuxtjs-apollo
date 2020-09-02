@@ -60,8 +60,7 @@ export default {
         httpEndpoint: 'https://easysnap-nuxt.herokuapp.com/graphql',
         httpLinkOptions: {
           credentials: 'same-origin'
-        },
-        wsEndpoint: 'ws://easysnap-nuxt.herokuapp.com/graphql'
+        }
       }
     }
   },
