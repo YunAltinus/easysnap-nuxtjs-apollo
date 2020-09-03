@@ -30,9 +30,9 @@ export default {
           if (!subscriptionData) return previousResult;
 
           const newSnap = subscriptionData.data.snap;
-
+          console.log(newSnap.id);
           if (window.$nuxt.$store.state.activeUser.id != newSnap.user.id) {
-            if (!previousResult.snaps.find(snap => snap.id === newItem.id)) {
+            if (!previousResult.snaps.find(snap => snap.id === newSnap.id)) {
               return {
                 ...previousResult,
                 snaps: [newSnap, ...previousResult.snaps]
