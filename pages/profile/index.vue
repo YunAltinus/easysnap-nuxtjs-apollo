@@ -4,8 +4,8 @@
     <div>
       <div>profile</div>
       <br />
-      <p>Kullanıcı adı : {{ this.$store.state.activeUser.username }}</p>
-      <p>Kullanıcı kayıt tarihi : {{ $moment(this.$store.state.activeUser.createdAt).format('DD/MM/YYYY') }}</p>
+      <p>Kullanıcı adı : {{ username }}</p>
+      <p>Kullanıcı kayıt tarihi : {{ $moment(createdAt).format('DD/MM/YYYY') }}</p>
     </div>
   </div>
 </template>
@@ -17,6 +17,16 @@ export default {
   middleware: 'auth',
   components: {
     SnapList
+  },
+  data() {
+    return {
+      username: '',
+      createdAt: null
+    };
+  },
+  async created() {
+    this.username = await this.$store.state.activeUser.username;
+    this.createdAt = await this.$store.state.activeUser.createdAt;
   }
 };
 </script>
