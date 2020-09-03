@@ -43,6 +43,7 @@ export default {
                 return previousResult;
               }
               return {
+                ...previousResult,
                 snaps: [newSnap, ...previousResult.snaps]
               };
             }
