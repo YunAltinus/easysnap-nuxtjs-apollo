@@ -18,9 +18,7 @@ import { ADD_SNAP, GET_SNAPS, GET_ACTIVE_USER } from '@/queries';
 export default {
   data() {
     return {
-      text: '',
-      user_id: '',
-      username: ''
+      text: ''
     };
   },
   methods: {
@@ -29,7 +27,7 @@ export default {
         .mutate({
           mutation: ADD_SNAP,
           variables: {
-            user_id: this.user_id,
+            user_id: this.$store.state.activeUser.id,
             text: this.text
           },
           update: (store, { data: { createSnap } }) => {
@@ -54,8 +52,8 @@ export default {
               createdAt: new Date(),
               user: {
                 __typename: 'User',
-                id: this.user_id,
-                username: this.username
+                id: this.$store.state.activeUser.id,
+                username: this.$store.state.activeUser.username
               }
             }
           }
@@ -64,13 +62,6 @@ export default {
           this.text = null;
         })
         .catch(() => console.error('Ekleme islemi gerçekleşemedi'));
-    }
-  },
-  async created() {
-    if (this.$store.state.activeUser) {
-      const activeUser = await this.$store.state.activeUser;
-      this.user_id = await activeUser.id;
-      this.username = await activeUser.username;
     }
   }
 };
