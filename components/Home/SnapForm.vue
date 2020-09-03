@@ -36,7 +36,6 @@ export default {
 
             // Add our tag from the mutation to the end
             snaps.unshift(createSnap);
-            console.log('snaps', snaps);
             // Write our data back to the cache.
             store.writeQuery({ query: GET_SNAPS, data: { snaps } });
           },
