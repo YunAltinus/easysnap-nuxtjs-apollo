@@ -150,7 +150,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: '/',
-      env: {"NUXT_APP_URI":"https://easysnap-nuxt.herokuapp.com/graphql"}
+      env: {"NUXT_APP_URI":"https://easysnap-nuxt.herokuapp.com/graphql","NUXT_APP_WSS":"wss://easysnap-nuxt.herokuapp.com/graphql"}
     }
     // Only set once
     if (!process.static && context.req) {
