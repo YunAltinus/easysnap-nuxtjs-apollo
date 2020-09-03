@@ -23,5 +23,5 @@ input createSnapInput {
 }
 
 type Subscription {
-  snap(user_id: ID): Snap
+  snap(user_id: ID): Snap!
 }

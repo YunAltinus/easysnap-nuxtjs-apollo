@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { CREATE_USER } from '~/queries/index';
+import { CREATE_USER } from '@/queries/index';
 
 export default {
   data() {

@@ -18,16 +18,10 @@ import { ADD_SNAP, GET_SNAPS, GET_ACTIVE_USER } from '@/queries';
 export default {
   data() {
     return {
-      text: ''
-    }
-  },
-  apollo: {
-    activeUser: {
-      query: GET_ACTIVE_USER,
-      result({ data }) {
-        this.$store.dispatch('setActiveUser', data.activeUser);
-      }
-    }
+      text: '',
+      user_id: '',
+      username: ''
+    };
   },
   methods: {
     addSnap(event) {
@@ -35,7 +29,7 @@ export default {
         .mutate({
           mutation: ADD_SNAP,
           variables: {
-            user_id: this.activeUser.id,
+            user_id: this.user_id,
             text: this.text
           },
           update: (store, { data: { createSnap } }) => {
@@ -44,7 +38,7 @@ export default {
 
             // Add our tag from the mutation to the end
             snaps.unshift(createSnap);
-
+            console.log('snaps', snaps);
             // Write our data back to the cache.
             store.writeQuery({ query: GET_SNAPS, data: { snaps } });
           },
@@ -60,8 +54,8 @@ export default {
               createdAt: new Date(),
               user: {
                 __typename: 'User',
-                id: this.activeUser.id,
-                username: this.activeUser.username
+                id: this.user_id,
+                username: this.username
               }
             }
           }
@@ -70,6 +64,13 @@ export default {
           this.text = null;
         })
         .catch(() => console.error('Ekleme islemi gerçekleşemedi'));
+    }
+  },
+  created() {
+    if (this.$store.state.activeUser) {
+      const activeUser = this.$store.state.activeUser;
+      this.user_id = activeUser.id;
+      this.username = activeUser.username;
     }
   }
 };

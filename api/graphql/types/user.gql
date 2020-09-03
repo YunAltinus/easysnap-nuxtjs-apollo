@@ -31,5 +31,5 @@ input SingInToken {
 }
 
 type Subscription {
-  user: User
+  user: User!
 }

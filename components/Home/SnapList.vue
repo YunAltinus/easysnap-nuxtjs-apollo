@@ -35,18 +35,16 @@ export default {
           if (!subscriptionData) return previousResult;
 
           const newSnap = subscriptionData.data.snap;
-
+          console.log(newSnap);
           // OPTIMICTIK UI
           if (this.$store.state.activeUser && newSnap) {
             if (this.$store.state.activeUser.id !== newSnap.user.id) {
               if (previousResult.snaps.find(snap => snap.id === newSnap.id)) {
                 return previousResult;
-              } else {
-                return {
-                  ...previousResult,
-                  snaps: [newSnap, ...previousResult.snaps]
-                };
               }
+              return {
+                snaps: [newSnap, ...previousResult.snaps]
+              };
             }
           }
         }
