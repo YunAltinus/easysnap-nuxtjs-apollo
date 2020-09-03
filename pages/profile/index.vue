@@ -25,8 +25,10 @@ export default {
     };
   },
   async created() {
-    this.username = await this.$store.state.activeUser.username;
-    this.createdAt = await this.$store.state.activeUser.createdAt;
+    if (this.$store.state.activeUser) {
+      this.username = await this.$store.state.activeUser.username;
+      this.createdAt = await this.$store.state.activeUser.createdAt;
+    }
   }
 };
 </script>
