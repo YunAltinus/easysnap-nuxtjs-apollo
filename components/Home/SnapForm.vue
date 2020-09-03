@@ -66,11 +66,11 @@ export default {
         .catch(() => console.error('Ekleme islemi gerçekleşemedi'));
     }
   },
-  created() {
+  async created() {
     if (this.$store.state.activeUser) {
-      const activeUser = this.$store.state.activeUser;
-      this.user_id = activeUser.id;
-      this.username = activeUser.username;
+      const activeUser = await this.$store.state.activeUser;
+      this.user_id = await activeUser.id;
+      this.username = await activeUser.username;
     }
   }
 };
