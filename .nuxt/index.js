@@ -16,6 +16,7 @@ import nuxt_plugin_apollomodule_6dac7be6 from 'nuxt_plugin_apollomodule_6dac7be6
 import nuxt_plugin_moment_17b29b12 from 'nuxt_plugin_moment_17b29b12' // Source: .\\moment.js (mode: 'all')
 import nuxt_plugin_timeago_cf036a34 from 'nuxt_plugin_timeago_cf036a34' // Source: ..\\plugins\\timeago (mode: 'all')
 import nuxt_plugin_components_6fb0430c from 'nuxt_plugin_components_6fb0430c' // Source: ..\\plugins\\components (mode: 'all')
+import nuxt_plugin_apollowsclient_410e49a3 from 'nuxt_plugin_apollowsclient_410e49a3' // Source: ..\\plugins\\apollo-ws-client.js (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -205,6 +206,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_components_6fb0430c === 'function') {
     await nuxt_plugin_components_6fb0430c(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_apollowsclient_410e49a3 === 'function') {
+    await nuxt_plugin_apollowsclient_410e49a3(app.context, inject)
   }
 
   // Lock enablePreview in context

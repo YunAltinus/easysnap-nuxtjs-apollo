@@ -29,7 +29,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/timeago', '~/plugins/components'],
+  plugins: [
+    '~/plugins/timeago',
+    '~/plugins/components',
+    { src: '~/plugins/apollo-ws-client.js', mode: 'client' }
+  ],
 
   /*
    ** Router Exam
@@ -56,13 +60,7 @@ export default {
   // Give apollo module options
   apollo: {
     clientConfigs: {
-      default: {
-        httpEndpoint: 'https://easysnap-nuxt.herokuapp.com/graphql',
-        httpLinkOptions: {
-          credentials: 'same-origin'
-        },
-        wsEndpoint: 'wss://easysnap-nuxt.herokuapp.com/graphql'
-      }
+      default: '~/plugins/apollo-config-default.js'
     }
   },
 
