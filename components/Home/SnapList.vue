@@ -10,7 +10,7 @@
 
 <script>
 import SnapItem from './SnapItem';
-import { GET_SNAPS, SNAP_CREATED } from '@/queries';
+import { GET_SNAPS, SNAP_CREATED, GET_ACTIVE_USER } from '@/queries';
 
 export default {
   data() {
@@ -26,26 +26,19 @@ export default {
       query: GET_SNAPS,
       subscribeToMore: {
         document: SNAP_CREATED,
-        // Variables passed to the subscription. Since we're using a function,
-        // they are reactive
-        // Mutate the previous result
-        updateQuery(previousResult, { subscriptionData }) {
-          // Here, return the new result from the previous with the new data
-
+        updateQuery: (previousResult, { subscriptionData }) => {
           if (!subscriptionData) return previousResult;
 
           const newSnap = subscriptionData.data.snap;
-          console.log(newSnap);
-          // OPTIMICTIK UI
-          if (this.$store.state.activeUser && newSnap) {
-            if (this.$store.state.activeUser.id !== newSnap.user.id) {
-              if (previousResult.snaps.find(snap => snap.id === newSnap.id)) {
-                return previousResult;
-              }
+
+          if (window.$nuxt.$store.state.activeUser.id != newSnap.user.id) {
+            if (previousResult.snaps.find(snap => snap.id !== newSnap.id)) {
               return {
                 ...previousResult,
                 snaps: [newSnap, ...previousResult.snaps]
               };
+            } else {
+              return previousResult;
             }
           }
         }

@@ -32,12 +32,12 @@ export default {
           },
           update: (store, { data: { createSnap } }) => {
             // Read the data from our cache for this query.
-            const { snaps } = store.readQuery({ query: GET_SNAPS });
+            const data = store.readQuery({ query: GET_SNAPS });
 
             // Add our tag from the mutation to the end
-            snaps.unshift(createSnap);
+            data.snaps.unshift(createSnap);
             // Write our data back to the cache.
-            store.writeQuery({ query: GET_SNAPS, data: { snaps } });
+            store.writeQuery({ query: GET_SNAPS, data });
           },
           // Optimistic UI
           // Will be treated as a 'fake' result as soon as the request is made
