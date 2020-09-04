@@ -1,3 +1,12 @@
 <template>
-  <button @click="$store.dispatch('onLogout')">Logout</button>
+  <button @click="onClick">Logout</button>
 </template>
+<script>
+export default {
+  methods: {
+    onClick() {
+      this.$store.dispatch('onLogout');
+    }
+  }
+};
+</script>
