@@ -31,17 +31,17 @@ export default {
 
           const newSnap = subscriptionData.data.snap;
 
-          if (window.$nuxt.$store.state.activeUser) {
-            if (window.$nuxt.$store.state.activeUser.id != newSnap.user.id) {
-              if (!previousResult.snaps.find(snap => snap.id === newSnap.id)) {
-                return {
-                  snaps: [newSnap, ...previousResult.snaps]
-                };
-              } else {
-                return previousResult;
-              }
+          // if (window.$nuxt.$store.state.activeUser) {
+          if (window.$nuxt.$store.state.activeUser.id != newSnap.user.id) {
+            if (!previousResult.snaps.find(snap => snap.id === newSnap.id)) {
+              return {
+                snaps: [newSnap, ...previousResult.snaps]
+              };
+            } else {
+              return previousResult;
             }
           }
+          // }
         }
       },
       result({ data }) {

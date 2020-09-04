@@ -5,10 +5,8 @@
     </div>
     <div class="header_menu">
       <nuxt-link to="/" tag="a" exact>snaps</nuxt-link>
-      <div v-if="watchToken">
-        <nuxt-link to="/profile" tag="a">Profil</nuxt-link>
-        <Logout />
-      </div>
+      <nuxt-link v-if="watchToken" to="/profile" tag="a">Profil</nuxt-link>
+      <Logout v-if="watchToken" />
       <div v-else>
         <nuxt-link to="/login" tag="a">login</nuxt-link>
         <nuxt-link to="/join" tag="a">join</nuxt-link>
