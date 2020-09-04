@@ -16,18 +16,9 @@ const createStore = () => {
       }
     },
     actions: {
-      nuxtServerInit({ commit }, { req }) {
-        // if (req) {
-        //   const token = req.headers;
-        //   if (token && token !== null) {
-        //     try {
-        //       const checkToken = token.cookie.split('=')[1];
-        //       commit('setToken', checkToken);
-        //     } catch (error) {
-        //       console.log(error);
-        //     }
-        //   }
-        // }
+      nuxtServerInit({ commit }, { app, store }) {
+        commit('setToken', store.$apolloHelpers.getToken());
+        console.log(app.apolloProvider.defaultClient.$apollo);
       },
       singIn({ commit, dispatch }, token) {
         this.$apolloHelpers.onLogin(token);
