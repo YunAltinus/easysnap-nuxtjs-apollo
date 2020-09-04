@@ -23,8 +23,8 @@ import { GET_ACTIVE_USER } from '@/queries';
 
 export default {
   computed: {
-    watchToken() {
-      return this.$store.getters.getToken;
+    async watchToken() {
+      return await this.$store.getters.getToken;
     }
   },
   apollo: {
