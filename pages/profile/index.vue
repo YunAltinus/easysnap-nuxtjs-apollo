@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <Header />
     <div>
-      <div>profile</div>
-      <br />
-      <p>Kullanıcı adı : {{ this.$store.state.activeUser.username }}</p>
-      <p>Kullanıcı kayıt tarihi : {{ $moment( this.$store.state.activeUser.createdAt).format('DD/MM/YYYY') }}</p>
+      <Header />
+      <div v-if="initActiveUser">
+        <div>profile</div>
+        <br />
+        <p>Kullanıcı adı : {{ this.$store.state.activeUser.username }}</p>
+        <p>Kullanıcı kayıt tarihi : {{ $moment( this.$store.state.activeUser.createdAt).format('DD/MM/YYYY') }}</p>
+      </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -18,5 +18,10 @@ export default {
   components: {
     SnapList
   },
+  computed: {
+    initActiveUser() {
+      return this.$store.state.activeUser ? true : false;
+    }
+  }
 };
 </script>

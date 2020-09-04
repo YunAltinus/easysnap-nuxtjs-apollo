@@ -10,7 +10,9 @@ export default {
     activeUser: {
       query: GET_ACTIVE_USER,
       result({ data }) {
-        this.$store.dispatch('setActiveUser', data.activeUser);
+        if (process.client) {
+          this.$store.dispatch('setActiveUser', data.activeUser);
+        }
       }
     }
   }

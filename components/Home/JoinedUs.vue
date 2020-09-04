@@ -18,7 +18,6 @@ export default {
       user: {
         query: USER_CREATED,
         result({ data }) {
-          console.log("joinus", data);
           if (data.user) {
             this.username = data.user.username;
             setTimeout(() => {
