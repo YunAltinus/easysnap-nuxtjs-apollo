@@ -18,8 +18,5 @@ export default {
   components: {
     SnapList
   },
-  created(){
-    console.log("header",this.$store.state.token);
-  }
 };
 </script>

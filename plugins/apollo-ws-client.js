@@ -7,6 +7,7 @@ export default ({ app }) => {
     client.wsClient.reconnect = true;
     client.wsClient.connectionParams = () => {
       return {
+        workspaceId: '123456',
         token
       };
     };

@@ -27,13 +27,13 @@ export default (ctx, inject) => {
 
       let defaultClientConfig
 
-        defaultClientConfig = {
-  "httpEndpoint": "https://easysnap-nuxt.herokuapp.com/graphql",
-  "wsEndpoint": "wss://easysnap-nuxt.herokuapp.com/graphql",
-  "httpLinkOptions": {
-    "credentials": "same-origin"
-  }
-}
+        defaultClientConfig = require('~/plugins/apollo-config-default.js')
+
+        if ('default' in defaultClientConfig) {
+          defaultClientConfig = defaultClientConfig.default
+        }
+
+        defaultClientConfig = defaultClientConfig(ctx)
 
       if (process.server) {
         onCacheInitStore['default'] = defaultClientConfig.onCacheInit

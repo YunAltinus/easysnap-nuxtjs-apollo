@@ -18,7 +18,7 @@ const createStore = () => {
     actions: {
       nuxtServerInit({ commit }, { app, store }) {
         commit('setToken', store.$apolloHelpers.getToken());
-        console.log(app.apolloProvider.defaultClient.$apollo);
+        console.log();
       },
       singIn({ commit, dispatch }, token) {
         this.$apolloHelpers.onLogin(token);
