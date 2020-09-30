@@ -34,7 +34,7 @@ export default {
   },
 
   methods: {
-    singIn(event) {
+    async singIn(event) {
       this.$apollo
         .mutate({
           mutation: SING_IN_USER,
