@@ -1,5 +1,6 @@
 // @ts-nocheck
 import Vuex from 'vuex';
+import jwt_decode from 'jwt-decode'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -16,8 +17,20 @@ const createStore = () => {
       }
     },
     actions: {
-      nuxtServerInit({ commit }, { app, store }) {
-        commit('setToken', store.$apolloHelpers.getToken());
+      async nuxtServerInit({ commit }, { req, store }) {
+        if (process.server && process.static) return;
+        if (!req.headers.cookie) return;
+
+        const token = await req.headers.cookie.split("=")[1];
+        if (!token) return;
+
+        console.log("token");
+
+        const user = await jwt_decode(token);
+        console.log(user);
+
+        if (user) commit('setActiveUser', user);
+
       },
       singIn({ commit, dispatch }, token) {
         this.$apolloHelpers.onLogin(token);
@@ -34,11 +47,6 @@ const createStore = () => {
         this.$router.push('/');
       }
     },
-    getters: {
-      getToken(state) {
-        return state.token ? true : false;
-      }
-    }
   });
 };
 export default createStore;
