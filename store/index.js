@@ -24,12 +24,10 @@ const createStore = () => {
         const token = await req.headers.cookie.split("=")[1];
         if (!token) return;
 
-        console.log("token");
-
         const user = await jwt_decode(token);
         console.log(user);
 
-        if (user) commit('setActiveUser', user);
+        if (user) await commit('setActiveUser', user);
 
       },
       async singIn({ commit, dispatch }, token) {
