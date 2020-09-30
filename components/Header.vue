@@ -5,12 +5,12 @@
     </div>
     <div class="header_menu">
       <nuxt-link to="/" tag="a" exact>snaps</nuxt-link>
-      <div v-if="$store.state.activeUser">
+      <span v-if="$store.state.activeUser">
         <nuxt-link to="/profile" tag="a">
           {{ $store.state.activeUser.username }}
         </nuxt-link>
         <Logout />
-      </div>
+      </span>
       <div v-else>
         <nuxt-link to="/login" tag="a">login</nuxt-link>
         <nuxt-link to="/join" tag="a">join</nuxt-link>
@@ -21,12 +21,11 @@
   
 <script>
 import Logout from './Logout';
-import { GET_ACTIVE_USER } from '@/queries';
 
 export default {
   components: {
     Logout
-  }
+  },
 };
 </script>
 
