@@ -32,9 +32,9 @@ const createStore = () => {
         if (user) commit('setActiveUser', user);
 
       },
-      singIn({ commit, dispatch }, token) {
-        this.$apolloHelpers.onLogin(token);
-        commit('setToken', token);
+      async singIn({ commit, dispatch }, token) {
+        await this.$apolloHelpers.onLogin(token);
+        await commit('setToken', token);
         this.$router.push('/');
       },
       setActiveUser({ commit }, activeUser) {
