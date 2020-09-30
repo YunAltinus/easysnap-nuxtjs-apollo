@@ -62,9 +62,6 @@ export default {
         httpLinkOptions: {
           credentials: 'same-origin'
         },
-        persisting: false,
-        websocketsOnly: false,
-        ssr: false
       }
     }
   },
@@ -76,6 +73,9 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    extend(config, ctx) {
+      config.resolve.symlinks = false
+    }
   }
 };
 /*
