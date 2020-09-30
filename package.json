@@ -15,6 +15,7 @@
     "@nuxtjs/moment": "^1.6.1",
     "bcrypt": "^5.0.0",
     "env-cmd": "^10.1.0",
+    "jwt-decode": "^3.0.0",
     "nuxt": "^2.0.0",
     "vue-timeago": "^5.1.2"
   },
